@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "net.toavahi.blockixel.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExampleMixin",
+		"ShieldBrakeMixin",
+		"ModEntityDataSaverMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
