@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:shield"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "o": {
+      "item": "blockixel:ox_bolt"
+    },
+    "s": {
+      "item": "blockixel:sculk_latch"
+    }
+  },
+  "pattern": [
+    "csc",
+    "a#a",
+    "aoa"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blockixel:am_shield"
+  },
+  "show_notification": true
+}

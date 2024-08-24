@@ -1,0 +1,6 @@
+{
+    "parent": "blockixel:item/sculk_bundle",
+    "textures": {
+        "layer0": "blockixel:item/sculk_bundle_filled"
+    }
+}

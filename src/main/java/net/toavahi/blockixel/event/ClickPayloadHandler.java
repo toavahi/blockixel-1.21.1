@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Blocks;
 import net.minecraft.text.Text;
 import net.toavahi.blockixel.Blockixel;
+import net.toavahi.blockixel.item.ModItems;
 import net.toavahi.blockixel.networking.ClickPayload;
 import net.toavahi.blockixel.util.IEntityDataSaver;
 import org.lwjgl.glfw.GLFW;

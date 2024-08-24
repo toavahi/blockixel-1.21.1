@@ -40,7 +40,6 @@ public class ShieldBrakeMixin {
         }
         if (amount >= 3.0f) {
             ((IEntityDataSaver) player).getPersistentData().putBoolean("blocking", true);
-            player.sendMessage(Text.of(String.valueOf(((IEntityDataSaver) player).getPersistentData().getInt("am_sh_charge"))));
             int i = 1 + MathHelper.floor(amount);
             Hand hand = player.getActiveHand();
             player.getActiveItem().damage(i, player, ((ShieldItem) player.getActiveItem().getItem()).getSlotType());

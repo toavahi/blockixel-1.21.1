@@ -1,3 +1,12 @@
 {
-  "item.blockixel.am_shield": "Amethyst Shield"
+  "item.blockixel.am_shield": "Amethyst Shield",
+  "item.blockixel.ox_bolt": "Oxiwine Bolt",
+  "item.blockixel.sculk_latch": "Sculk Latch",
+  "sounds.blockixel.am_monocle_on": "Amethyst Monocle clanks",
+  "item.blockixel.am_monocle": "Amethyst Monocle",
+  "item.blockixel.tr_glove": "Treasure Glove",
+  "item.blockixel.chisel": "Amethyst Chisel",
+  "item.blockixel.am_monocle.tooltip": "Seconds until scan: ",
+  "item.blockixel.am_shield.tooltip": "Charge: ",
+  "item.blockixel.sculk_bundle": "Sculk Bundle"
 }

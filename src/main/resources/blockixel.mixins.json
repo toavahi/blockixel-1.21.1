@@ -5,7 +5,9 @@
 	"mixins": [
 		"ExampleMixin",
 		"ShieldBrakeMixin",
-		"ModEntityDataSaverMixin"
+		"ModEntityDataSaverMixin",
+		"PlayerDeathMixin",
+		"NoSculkBundleDespawnMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
