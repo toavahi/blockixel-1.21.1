@@ -5,9 +5,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.toavahi.blockixel.Blockixel;
+import net.toavahi.blockixel.block.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -30,5 +32,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.COAL_ORE).add(Blocks.DEEPSLATE_COAL_ORE)
                 .add(Blocks.GOLD_ORE).add(Blocks.DEEPSLATE_GOLD_ORE)
                 .add(Blocks.ANCIENT_DEBRIS);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.AM_DISPENSER);
     }
 }

@@ -1,4 +1,4 @@
-package net.toavahi.blockixel.item.AmMonocle;
+package net.toavahi.blockixel.item;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -13,17 +13,20 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.toavahi.blockixel.Blockixel;
 import net.toavahi.blockixel.sound.ModSounds;
-import net.toavahi.blockixel.util.IEntityDataSaver;
+import net.toavahi.blockixel.util.ModDataComponents;
 import net.toavahi.blockixel.util.ModTags;
 
 import java.util.List;
 
 public class AmMonocleItem extends ArmorItem implements Equipment {
+    int scan_time = 0;
+    int scan_tool_time = 0;
+    boolean particle_approved = false;
+    BlockPos particle_pos;
 
     public AmMonocleItem(Settings settings) {
-        super(MonocleArmorMaterial.MONOCLE, Type.HELMET, settings);
+        super(AmArmorMaterial.AMETHYST, Type.HELMET, settings);
     }
 
     @Override
@@ -33,7 +36,7 @@ public class AmMonocleItem extends ArmorItem implements Equipment {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("item.blockixel.am_monocle.tooltip").append(String.valueOf(0)));
+        tooltip.add(Text.translatable("item.blockixel.am_monocle.tooltip").append(String.valueOf(scan_tool_time)));
     }
 
     @Override
@@ -44,8 +47,12 @@ public class AmMonocleItem extends ArmorItem implements Equipment {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && slot == EquipmentSlot.HEAD.getEntitySlotId()) {
-            if (((IEntityDataSaver) entity).getPersistentData().getInt("scan_time") > 20 * 300) {
-                ((IEntityDataSaver) entity).getPersistentData().putInt("scan_time", 0);
+            scan_time = stack.get(ModDataComponents.SCAN_TIME);
+            int particle_time = 0;
+            boolean time_update = false;
+            if (scan_time > 20 * 180) {
+                stack.set(ModDataComponents.SCAN_TIME, 0);
+                scan_time = 0;
                 int counter = 0;
                 int[][] posList = new int[125][3];
                 for (int x = -5; x < 5; ++x) {
@@ -63,27 +70,44 @@ public class AmMonocleItem extends ArmorItem implements Equipment {
                 int small = 1000;
                 int smallCounter = 0;
                 for (int[] block : posList) {
-                    if (small > Math.abs(block[0]) + Math.abs(block[1]) + Math.abs(block[2])
+                    if (!block.equals(new int[]{0, 0, 0}) && small > Math.abs(block[0]) + Math.abs(block[1]) + Math.abs(block[2])
                             && Math.abs(block[0]) + Math.abs(block[1]) + Math.abs(block[2]) > 0) {
                         small = Math.abs(block[0]) + Math.abs(block[1]) + Math.abs(block[2]);
                         smallCounter = c;
                     }
                     c++;
                 }
-                BlockPos pos = new BlockPos(entity.getBlockX() + posList[smallCounter][0], entity.getBlockY() + posList[smallCounter][1], entity.getBlockZ() + posList[smallCounter][2]);
-                int k = 0;
-                for (int i = 0; i < 5; ++i) {
-                    k = ((ServerWorld) world).spawnParticles(ParticleTypes.HAPPY_VILLAGER,
-                            ((pos.getX() - entity.getX()) / 5 * i) + entity.getX(),
-                            ((pos.getY() - entity.getY()) / 5 * i) + entity.getY(),
-                            ((pos.getZ() - entity.getZ()) / 5 * i) + entity.getZ(), 1,
-                            0.0, 0.0, 0.0, 0.0);
+                if(!posList[smallCounter].equals(new int[]{0, 0, 0})) {
+                    particle_pos = new BlockPos(entity.getBlockX() + posList[smallCounter][0], entity.getBlockY() + posList[smallCounter][1], entity.getBlockZ() + posList[smallCounter][2]);
+                    particle_approved = true;
+                    time_update = true;
+                    world.playSound(null, particle_pos, SoundEvents.BLOCK_BELL_RESONATE, SoundCategory.BLOCKS);
                 }
-                Blockixel.LOGGER.info(String.valueOf(k));
-                entity.sendMessage(Text.of(String.valueOf(posList[0][0])));
-                world.playSound(null, pos, SoundEvents.BLOCK_BELL_RESONATE, SoundCategory.BLOCKS);
+            }
+            stack.set(ModDataComponents.SCAN_TIME, scan_time + 1);
+            if((180 * 20 - scan_time) % 20 == 0){
+                scan_tool_time = (180 * 20 - scan_time) / 20;
+            }
+            if(particle_approved){
+                if(time_update){
+                    particle_time = (int) world.getTime();
+                }
+                if(particle(((ServerWorld) world), entity, particle_pos, particle_time)){
+                    particle_approved = false;
+                }
             }
         }
-        ((IEntityDataSaver) entity).getPersistentData().putInt("scan_time", ((IEntityDataSaver) entity).getPersistentData().getInt("scan_time") + 1);
+    }
+    private boolean particle(ServerWorld world, Entity entity, BlockPos pos, int start){
+        if(world.getTime() - start < 200 && ((world.getTime() - start) & 10) == 0){
+            for (int i = 0; i < 10; ++i) {
+                world.spawnParticles(ParticleTypes.HAPPY_VILLAGER,
+                        ((pos.getX() - entity.getX()) / 10 * i) + entity.getX(),
+                        ((pos.getY() - entity.getEyeY()) / 10 * i) + entity.getEyeY(),
+                        ((pos.getZ() - entity.getZ()) / 10 * i) + entity.getZ(), 1,
+                        0.0, 0.0, 0.0, 0.0);
+            }
+        }
+        return world.getTime() - start > 200;
     }
 }

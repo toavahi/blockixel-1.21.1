@@ -3,6 +3,7 @@ package net.toavahi.blockixel.block;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -15,6 +16,7 @@ public class ModBlocks {
     //public static final Block BIG_VASE = registerBlock("big_vase", new Block(AbstractBlock.Settings.copy()));
     //public static final Block MID_VASE = registerBlock("mid_vase", new Block(AbstractBlock.Settings.copy()));
     //public static final Block SMALL_VASE = registerBlock("small_vase", new Block(AbstractBlock.Settings.copy()));
+    public static final Block AM_DISPENSER = registerBlock("am_dispenser", new AmDispenserBlock(AbstractBlock.Settings.copy(Blocks.DISPENSER)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

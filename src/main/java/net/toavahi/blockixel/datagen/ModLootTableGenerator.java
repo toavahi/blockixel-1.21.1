@@ -3,6 +3,7 @@ package net.toavahi.blockixel.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.toavahi.blockixel.block.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,7 +14,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        //addDrop(Blocks.COBBLESTONE, item.PEBBLE_PROJECTILE_ITEM);
+        addDrop(ModBlocks.AM_DISPENSER, ModBlocks.AM_DISPENSER);
     }
 
 }

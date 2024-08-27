@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "blockixel:block/am_dispenser_vertical",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "blockixel:block/am_dispenser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blockixel:block/am_dispenser"
+    },
+    "facing=south": {
+      "model": "blockixel:block/am_dispenser",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "blockixel:block/am_dispenser_vertical"
+    },
+    "facing=west": {
+      "model": "blockixel:block/am_dispenser",
+      "y": 270
+    }
+  }
+}

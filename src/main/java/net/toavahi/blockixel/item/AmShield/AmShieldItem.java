@@ -8,16 +8,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.toavahi.blockixel.Blockixel;
+import net.toavahi.blockixel.item.TrGlove.TrGloveItem;
 import net.toavahi.blockixel.util.IEntityDataSaver;
+import net.toavahi.blockixel.util.ModDataComponents;
 import net.toavahi.blockixel.util.PlayerMovement;
 
 import java.util.List;
 
 
 public class AmShieldItem extends ShieldItem implements Equipment {
-    int sh_charge = 0;
+    public int sh_charge = 0;
 
     public AmShieldItem(Settings settings) {
         super(settings);
@@ -28,22 +31,28 @@ public class AmShieldItem extends ShieldItem implements Equipment {
         if(!world.isClient()) {
             //dash
             if(((IEntityDataSaver) player).getPersistentData().getInt("click") == 0
-                    && ((IEntityDataSaver) player).getPersistentData().getInt("charge") >= 20 /** 60 * 20*/){
-                PlayerMovement.dash(((PlayerEntity) player));
-                ((IEntityDataSaver) player).getPersistentData().putInt("charge", (((IEntityDataSaver) player).getPersistentData().getInt("charge") - 10 /** 60 * 20*/));
+                    && stack.get(ModDataComponents.SH_CHARGE) >= 10 * 60 * 20){
+                //inject trGlove charge
+                if(player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof TrGloveItem
+                    && player.getStackInHand(Hand.MAIN_HAND).get(ModDataComponents.SH_CHARGE) <= 10 * 60 * 20){
+                    player.getStackInHand(Hand.MAIN_HAND).set(ModDataComponents.SH_CHARGE, player.getStackInHand(Hand.MAIN_HAND).get(ModDataComponents.SH_CHARGE) + (10 * 60 * 20));
+                } else {
+                    PlayerMovement.dash(((PlayerEntity) player));
+                }
+                sh_charge -= 10 * 60 * 20;
                 ((IEntityDataSaver) player).getPersistentData().putInt("click", -1);
             }
             //parry
             if (stack.getItem().getMaxUseTime(stack, player) - remainingUseTicks < 20 &&
                     ((IEntityDataSaver) player).getPersistentData().getBoolean("blocking")){
                 ((IEntityDataSaver) player).getPersistentData().putBoolean("blocking", false);
-                ((IEntityDataSaver) player).getPersistentData().putInt("charge", 20 /** 60 * 20*/);
+                sh_charge = 20 * 60 * 20;
                 Blockixel.LOGGER.info("parry");
             }
             //jump
             if(((IEntityDataSaver) player).getPersistentData().getInt("click") == 32
-                    && ((IEntityDataSaver) player).getPersistentData().getInt("charge") >= 20 /** 60 * 10*/){
-                ((IEntityDataSaver) player).getPersistentData().putInt("charge", ((IEntityDataSaver) player).getPersistentData().getInt("charge") - 10 /** 60 * 20*/);
+                    && stack.get(ModDataComponents.SH_CHARGE) >= 10 * 60 * 20){
+                sh_charge -= 10 * 60 * 20;
                 ((IEntityDataSaver) player).getPersistentData().putInt("click", -1);
                 PlayerMovement.jump(((PlayerEntity) player));
             }
@@ -53,18 +62,18 @@ public class AmShieldItem extends ShieldItem implements Equipment {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("item.blockixel.am_shield.tooltip").append(String.valueOf(sh_charge)));
-        Blockixel.LOGGER.info(String.valueOf(sh_charge));
+        tooltip.add(Text.translatable("item.blockixel.am_shield.tooltip").append(String.valueOf(stack.get(ModDataComponents.SH_CHARGE))));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         int a = 0;
         PlayerEntity player = ((PlayerEntity) entity);
-        int charge = ((IEntityDataSaver) player).getPersistentData().getInt("charge");
-        if(charge < 20 * 60 * 20) {
+        if(sh_charge < 20 * 60 * 20) {
             if (player.isSprinting()) {
                 a = 4;
+            } else if(player.isSneaking()){
+                a = 1;
             } else if (player.isSwimming()) {
                 a = 3;
             } else if (player.isCrawling()) {
@@ -79,19 +88,12 @@ public class AmShieldItem extends ShieldItem implements Equipment {
                 ((IEntityDataSaver) player).getPersistentData().putDouble("prevPosY", player.getY());
                 ((IEntityDataSaver) player).getPersistentData().putDouble("prevPosZ", player.getZ());
             }
-            charge += a;
-            if(charge > 20 * 60 * 20){
-                charge = 20 * 60 * 20;
-            }
-            ((IEntityDataSaver) player).getPersistentData().putInt("charge", charge);
-            sh_charge = charge;
+            sh_charge += a;
         }
-    }
-
-    public int getCharge(PlayerEntity player) {
-        return ((IEntityDataSaver) player).getPersistentData().getInt("charge");
-    }
-    public void setCharge(PlayerEntity player, int charge){
-        ((IEntityDataSaver) player).getPersistentData().putInt("charge", charge);
+        stack.set(ModDataComponents.SH_CHARGE, sh_charge + stack.get(ModDataComponents.SH_CHARGE));
+        if(stack.get(ModDataComponents.SH_CHARGE) > 20 * 60 * 20){
+            stack.set(ModDataComponents.SH_CHARGE, 20 * 60 * 20);
+        }
+        sh_charge = 0;
     }
 }

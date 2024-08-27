@@ -7,7 +7,9 @@
 		"ShieldBrakeMixin",
 		"ModEntityDataSaverMixin",
 		"PlayerDeathMixin",
-		"NoSculkBundleDespawnMixin"
+		"NoSculkBundleDespawnMixin",
+		"ItemDispenserBehaviorMixin",
+		"ProjectileDispenserBehaviorMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

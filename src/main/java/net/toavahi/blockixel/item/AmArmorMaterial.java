@@ -1,4 +1,4 @@
-package net.toavahi.blockixel.item.AmMonocle;
+package net.toavahi.blockixel.item;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.toavahi.blockixel.Blockixel;
@@ -17,10 +18,11 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class MonocleArmorMaterial{
-    public static final RegistryEntry<ArmorMaterial> MONOCLE = register("am_monocle",Util.make(new EnumMap(ArmorItem.Type.class), map -> {
+public class AmArmorMaterial {
+    public static final RegistryEntry<ArmorMaterial> AMETHYST = register("am_monocle",Util.make(new EnumMap(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.HELMET, 0);
-    }), 0, ModSounds.AM_MONOCLE_ON, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.COPPER_INGOT));
+        map.put(ArmorItem.Type.CHESTPLATE, 0);
+    }), 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.COPPER_INGOT));
 
     private static RegistryEntry<ArmorMaterial> register(
             String id,

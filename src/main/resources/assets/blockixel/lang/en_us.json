@@ -8,5 +8,6 @@
   "item.blockixel.chisel": "Amethyst Chisel",
   "item.blockixel.am_monocle.tooltip": "Seconds until scan: ",
   "item.blockixel.am_shield.tooltip": "Charge: ",
-  "item.blockixel.sculk_bundle": "Sculk Bundle"
+  "item.blockixel.sculk_bundle": "Sculk Bundle",
+  "block.blockixel.am_dispenser.tooltip": "Amethyst Dispenser"
 }
