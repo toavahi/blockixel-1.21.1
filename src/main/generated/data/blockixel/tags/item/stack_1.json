@@ -188,6 +188,7 @@
     "blockixel:am_monocle",
     "blockixel:chisel",
     "blockixel:sculk_bundle",
-    "blockixel:lead_pack"
+    "blockixel:lead_pack",
+    "blockixel:str_compass"
   ]
 }

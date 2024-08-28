@@ -27,5 +27,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TREASURE_GLOVE, Models.GENERATED);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.LEAD_PACK);
+        itemModelGenerator.registerCompass(ModItems.STR_COMPASS);
     }
 }

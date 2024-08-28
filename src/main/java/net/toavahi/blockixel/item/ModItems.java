@@ -31,6 +31,7 @@ public class ModItems {
             .component(DataComponentTypes.BUNDLE_CONTENTS, BundleContentsComponent.DEFAULT).fireproof()));
     public static final Item LEAD_PACK = registerItem("lead_pack", new LeadPackItem(new Item.Settings().maxCount(1)
             .component(ModDataComponents.PACK_SIZE, 0).component(ModDataComponents.PACK_INSIDE, List.of())));
+    public static final Item STR_COMPASS = registerItem("str_compass", new StrCompassItem(new Item.Settings().maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Blockixel.MOD_ID, name), item);
@@ -39,6 +40,7 @@ public class ModItems {
     private static void addItemToCombatTab(FabricItemGroupEntries entries) {
         entries.add(AM_SHIELD);
     }
+
     private static void addItemToIngredientTab(FabricItemGroupEntries entries){
         entries.add(OX_BOLT);
         entries.add(SCULK_LATCH);
@@ -49,15 +51,21 @@ public class ModItems {
         entries.add(CHISEL);
         entries.add(SCULK_BUNDLE);
         entries.add(LEAD_PACK);
+        entries.add(STR_COMPASS);
     }
 
     private static void addItemToRedstoneTab(FabricItemGroupEntries entries){
         entries.add(ModBlocks.AM_DISPENSER);
+    }
+
+    private static void addItemToNatureTab(FabricItemGroupEntries entries){
+        entries.add(ModBlocks.SCULK_JAW);
     }
     public static void registerItems() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemToCombatTab);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemToIngredientTab);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemToToolTab);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(ModItems::addItemToRedstoneTab);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemToNatureTab);
     }
 }

@@ -23,6 +23,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.toavahi.blockixel.block.AmDispenserBlock;
 import net.toavahi.blockixel.block.ModBlocks;
+import net.toavahi.blockixel.block.SculkJawBlock;
 import net.toavahi.blockixel.block.blockEntity.AmDispenserBlockEntity;
 import net.toavahi.blockixel.block.blockEntity.ModBlockEntities;
 import net.toavahi.blockixel.event.ClickPayloadHandler;
@@ -72,6 +73,21 @@ public class Blockixel implements ModInitializer {
 				world.setBlockState(pos.add(0, -1, 0), Blocks.DISPENSER.getDefaultState().with(DispenserBlock.FACING, dir));
 			}
 		});
+		PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
+			if(!world.isClient() && state.getBlock() == ModBlocks.SCULK_JAW){
+				switch(state.get(SculkJawBlock.ACTIVATE)){
+					case 1 -> {
+						world.setBlockState(pos, state.with(SculkJawBlock.ACTIVATE, 0));
+						return false;
+					}
+					case 2 -> {
+						world.setBlockState(pos, state.with(SculkJawBlock.ACTIVATE, 1));
+						return false;
+					}
+                }
+			}
+            return true;
+        });
 		ModBlockEntities.registerModEntities();
 		LOGGER.info("Happy playing with my mod day!");
 	}

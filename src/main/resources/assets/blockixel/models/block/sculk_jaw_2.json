@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "minecraft:block/sculk",
+    "up": "blockixel:block/sculk_jaw_2"
+  }
+}

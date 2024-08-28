@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "activate=0": {
+      "model": "blockixel:block/sculk_jaw"
+    },
+    "activate=1": {
+      "model": "blockixel:block/sculk_jaw_1"
+    },
+    "activate=2": {
+      "model": "blockixel:block/sculk_jaw_2"
+    }
+  }
+}

@@ -17,6 +17,7 @@ public class ModBlocks {
     //public static final Block MID_VASE = registerBlock("mid_vase", new Block(AbstractBlock.Settings.copy()));
     //public static final Block SMALL_VASE = registerBlock("small_vase", new Block(AbstractBlock.Settings.copy()));
     public static final Block AM_DISPENSER = registerBlock("am_dispenser", new AmDispenserBlock(AbstractBlock.Settings.copy(Blocks.DISPENSER)));
+    public static final Block SCULK_JAW = registerBlock("sculk_jaw", new SculkJawBlock(AbstractBlock.Settings.copy(Blocks.SCULK)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

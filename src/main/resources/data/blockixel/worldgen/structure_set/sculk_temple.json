@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "blockixel:sculk_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 557206495,
+
+    "spacing": 16,
+
+    "separation": 8,
+
+    "type": "minecraft:random_spread"
+  }
+}

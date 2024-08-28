@@ -11,6 +11,8 @@ import net.toavahi.blockixel.block.ModBlocks;
 public class ModBlockEntities {
     public static final BlockEntityType<AmDispenserBlockEntity> AM_DISPENSER = create(
             "am_dispenser", BlockEntityType.Builder.create(AmDispenserBlockEntity::new, ModBlocks.AM_DISPENSER).build(null));
+    public static final BlockEntityType<SculkJawBlockEntity> SCULK_JAW = create(
+            "sculk_jaw", BlockEntityType.Builder.create(SculkJawBlockEntity::new, ModBlocks.SCULK_JAW).build(null));
 
     public static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType<T> builder) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(Blockixel.MOD_ID, id), builder);

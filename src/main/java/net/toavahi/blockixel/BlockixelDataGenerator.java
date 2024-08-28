@@ -2,10 +2,7 @@ package net.toavahi.blockixel;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.toavahi.blockixel.datagen.ModItemTagProvider;
-import net.toavahi.blockixel.datagen.ModModelProvider;
-import net.toavahi.blockixel.datagen.ModLootTableGenerator;
-import net.toavahi.blockixel.datagen.ModBlockTagProvider;
+import net.toavahi.blockixel.datagen.*;
 
 public class BlockixelDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -15,5 +12,6 @@ public class BlockixelDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLootTableGenerator::new);
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 	}
 }
