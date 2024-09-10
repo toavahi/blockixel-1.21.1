@@ -1,23 +1,24 @@
 {
-	"required": true,
-	"package": "net.toavahi.blockixel.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin",
-		"ShieldBrakeMixin",
-		"ModEntityDataSaverMixin",
-		"PlayerDeathMixin",
-		"NoSculkBundleDespawnMixin",
-		"ItemDispenserBehaviorMixin",
-		"ProjectileDispenserBehaviorMixin",
-		"SculkSpreadMixin"
-	],
-	"client": [
-		"ItemRendererAccessor",
-		"ItemRendererMixin",
-		"ModelLoaderMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.toavahi.blockixel.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ArchEffectItemMixin",
+    "ExampleMixin",
+    "ItemDispenserBehaviorMixin",
+    "ModEntityDataSaverMixin",
+    "NoSculkBundleDespawnMixin",
+    "PlayerDeathMixin",
+    "ProjectileDispenserBehaviorMixin",
+    "SculkSpreadMixin",
+    "ShieldBrakeMixin"
+  ],
+  "client": [
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

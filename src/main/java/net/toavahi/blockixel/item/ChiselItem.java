@@ -1,12 +1,10 @@
-package net.toavahi.blockixel.item.Chisel;
+package net.toavahi.blockixel.item;
 
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementEntry;
-import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ToolItem;
@@ -19,10 +17,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.toavahi.blockixel.Blockixel;
 import net.toavahi.blockixel.block.blockEntity.BrushObsiBlockEntity;
-import net.toavahi.blockixel.datagen.ModAdvancementProvider;
-import net.toavahi.blockixel.item.ModItems;
 
 public class ChiselItem extends ToolItem {
     public ChiselItem(Settings settings) {
@@ -40,9 +35,9 @@ public class ChiselItem extends ToolItem {
                 world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS);
                 player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             }
-            Registry<Advancement> advancementRegistry = world.getRegistryManager().get(RegistryKeys.ADVANCEMENT);
+            /*Registry<Advancement> advancementRegistry = world.getRegistryManager().get(RegistryKeys.ADVANCEMENT);
             Advancement advancement = advancementRegistry.get(Identifier.ofVanilla("story/mine_stone"));
-            AdvancementEntry advancementEntry = new AdvancementEntry(Identifier.ofVanilla("story/mine_stone"), advancement);
+            AdvancementEntry advancementEntry = new AdvancementEntry(Identifier.ofVanilla("story/mine_stone"), advancement);*/
             if(world.getBlockState(context.getBlockPos()).getBlock() == Blocks.WEATHERED_COPPER /*&& player.getAdvancementTracker().getProgress(advancementEntry).isDone()*/){
                 world.setBlockState(context.getBlockPos(), Blocks.WEATHERED_CUT_COPPER.getDefaultState());
                 world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_COPPER_BREAK, SoundCategory.BLOCKS);

@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 import net.toavahi.blockixel.Blockixel;
 import net.toavahi.blockixel.block.ModBlocks;
 import net.toavahi.blockixel.item.AmShield.AmShieldItem;
-import net.toavahi.blockixel.item.Chisel.ChiselItem;
 import net.toavahi.blockixel.item.GrapplePack.GrapplePackItem;
 import net.toavahi.blockixel.util.ModDataComponents;
 

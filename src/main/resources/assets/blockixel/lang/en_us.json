@@ -28,5 +28,6 @@
   "advancement.blockixel.am_sh_base.title": "Barrels have no random",
   "advancement.blockixel.am_sh_base.desc": "Remember to press the button",
   "advancement.blockixel.arch_base.title": "Archeology Tutorial",
-  "advancement.blockixel.arch_base.desc": "First, but not least"
+  "advancement.blockixel.arch_base.desc": "First, but not least",
+  "block.blockixel.brush_obsi": "Suspicious Obsidian"
 }
