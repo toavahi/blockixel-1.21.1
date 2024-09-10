@@ -10,11 +10,8 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.Vec3d;
-import net.toavahi.blockixel.item.LeadPack.LeadPackItem;
+import net.toavahi.blockixel.item.GrapplePack.GrapplePackItem;
 import net.toavahi.blockixel.util.ModDataComponents;
-
-import java.util.List;
 
 public class OxBoltItem extends Item {
     public OxBoltItem(Settings settings) {
@@ -23,7 +20,7 @@ public class OxBoltItem extends Item {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if(entity instanceof ArmorStandEntity  && entity.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof LeadPackItem){
+        if(entity instanceof ArmorStandEntity  && entity.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof GrapplePackItem){
             ItemStack pack = entity.getEquippedStack(EquipmentSlot.CHEST);
             if(pack.get(ModDataComponents.PACK_SIZE) < 2){
                 pack.set(ModDataComponents.PACK_SIZE, pack.get(ModDataComponents.PACK_SIZE) + 1);

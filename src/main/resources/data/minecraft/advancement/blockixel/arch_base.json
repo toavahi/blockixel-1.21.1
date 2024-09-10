@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:blockixel/root",
+  "criteria": {
+    "in_arch_base": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "blockixel:arch_base"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.blockixel.arch_base.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:brush"
+    },
+    "title": {
+      "translate": "advancement.blockixel.arch_base.title"
+    }
+  },
+  "requirements": [
+    [
+      "in_arch_base"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

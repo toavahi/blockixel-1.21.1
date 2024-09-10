@@ -6,26 +6,18 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.DispenserBlockEntity;
-import net.minecraft.command.argument.BlockStateArgument;
-import net.minecraft.component.type.BlockStateComponent;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.toavahi.blockixel.block.AmDispenserBlock;
 import net.toavahi.blockixel.block.ModBlocks;
 import net.toavahi.blockixel.block.SculkJawBlock;
-import net.toavahi.blockixel.block.blockEntity.AmDispenserBlockEntity;
 import net.toavahi.blockixel.block.blockEntity.ModBlockEntities;
+import net.toavahi.blockixel.effect.ModEffects;
 import net.toavahi.blockixel.event.ClickPayloadHandler;
 import net.toavahi.blockixel.event.PlayerDeathHandler;
 import net.toavahi.blockixel.event.PlayerTickHandler;
@@ -89,6 +81,7 @@ public class Blockixel implements ModInitializer {
             return true;
         });
 		ModBlockEntities.registerModEntities();
+		ModEffects.registerEffects();
 		LOGGER.info("Happy playing with my mod day!");
 	}
 }

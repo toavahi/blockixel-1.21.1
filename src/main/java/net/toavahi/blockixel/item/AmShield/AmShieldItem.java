@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.toavahi.blockixel.Blockixel;
-import net.toavahi.blockixel.item.TrGlove.TrGloveItem;
+import net.toavahi.blockixel.item.TrGloveItem;
 import net.toavahi.blockixel.util.IEntityDataSaver;
 import net.toavahi.blockixel.util.ModDataComponents;
 import net.toavahi.blockixel.util.PlayerMovement;

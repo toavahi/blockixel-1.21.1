@@ -22,7 +22,6 @@ import net.minecraft.world.World;
 import net.toavahi.blockixel.entity.ModEntities;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class TrGloveChargeEntity extends ExplosiveProjectileEntity {
     int bonus[][] = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 1}, {1, 0, 0}, {1, 1, 0}, {0, 1, 1}, {1, 0, 1}, {-1, 0, 0}, {0, -1, 0},

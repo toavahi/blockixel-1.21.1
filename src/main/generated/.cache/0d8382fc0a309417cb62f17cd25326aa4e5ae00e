@@ -1,1 +1,7 @@
-// 1.21.1	2024-08-28T15:04:25.8433856	blockixel/Recipes
+// 1.21.1	2024-09-10T13:52:06.6485669	blockixel/Recipes
+bcc0080f374ad6f5d7574c510e79cf212c6436b5 data\blockixel\recipe\tr_glove.json
+ceb117994e054dc4590c8f188cbdaca8948db827 data\blockixel\recipe\am_monocle.json
+dc5a5f90e6ca6dc985ee7871a79a7e0091689507 data\blockixel\advancement\recipes\tools\am_monocle.json
+ca4c2d6d870c1d64b57b37c55b0bebc379fdb398 data\blockixel\advancement\recipes\tools\tr_glove.json
+b596f52c5686ce4b4a124f29e2d3eaee96e67a9d data\blockixel\recipe\chisel.json
+ca3cc4e78efef5e7513128ba8a97cb69dc73cd1a data\blockixel\advancement\recipes\tools\chisel.json

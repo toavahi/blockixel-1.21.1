@@ -4,7 +4,6 @@ package net.toavahi.blockixel.util;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 
 public class PlayerMovement {
@@ -21,7 +20,6 @@ public class PlayerMovement {
             player.addVelocity(x, y, z);
             player.velocityModified = true;
             player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.ENTITY_BREEZE_JUMP, SoundCategory.HOSTILE);
-            player.sendMessage(Text.of(x + " | " + y + " | " + z));
         }
     }
     public static void jump(PlayerEntity player){

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "air=false,book=false": {
+      "model": "blockixel:block/display_case"
+    },
+    "air=true,book=false": {
+      "model": "blockixel:block/display_case_open"
+    },
+    "air=false,book=true": {
+      "model": "blockixel:block/display_case_book"
+    },
+    "air=true,book=true": {
+      "model": "blockixel:block/display_case_open_book"
+    }
+  }
+}

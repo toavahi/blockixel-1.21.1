@@ -16,7 +16,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AM_PLATE);
+        blockStateModelGenerator.registerBrushableBlock(ModBlocks.BRUSH_OBSI);
     }
 
     @Override
@@ -26,7 +26,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.AM_MONOCLE);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TREASURE_GLOVE, Models.GENERATED);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.LEAD_PACK);
         itemModelGenerator.registerCompass(ModItems.STR_COMPASS);
+        itemModelGenerator.register(ModItems.PRICKLY_PEAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARCH_BOOK, Models.GENERATED);
     }
 }

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:blockixel/arch_base",
+  "criteria": {
+    "got_ox_bolt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blockixel:ox_bolt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.blockixel.got_ox_bolt.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "blockixel:ox_bolt"
+    },
+    "title": {
+      "translate": "advancement.blockixel.got_ox_bolt.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_ox_bolt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

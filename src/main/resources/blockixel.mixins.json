@@ -9,7 +9,13 @@
 		"PlayerDeathMixin",
 		"NoSculkBundleDespawnMixin",
 		"ItemDispenserBehaviorMixin",
-		"ProjectileDispenserBehaviorMixin"
+		"ProjectileDispenserBehaviorMixin",
+		"SculkSpreadMixin"
+	],
+	"client": [
+		"ItemRendererAccessor",
+		"ItemRendererMixin",
+		"ModelLoaderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

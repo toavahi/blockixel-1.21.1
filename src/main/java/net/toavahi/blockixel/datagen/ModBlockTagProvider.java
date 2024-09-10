@@ -33,5 +33,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.GOLD_ORE).add(Blocks.DEEPSLATE_GOLD_ORE)
                 .add(Blocks.ANCIENT_DEBRIS);
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.AM_DISPENSER);
+        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(ModBlocks.SCULK_JAW);
     }
 }

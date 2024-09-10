@@ -1,2 +1,5 @@
-// 1.21.1	2024-08-28T15:04:25.848373	blockixel/Block Loot Tables
+// 1.21.1	2024-09-10T13:52:06.6565455	blockixel/Block Loot Tables
 250e0611b2b94f152436024378f951cee7e91e27 data\blockixel\loot_table\blocks\am_dispenser.json
+2e90eb83c6bd6d5faa5a0ca0555dc61bec5ac45e data\blockixel\loot_table\blocks\sculk_jaw.json
+657e09f9e2c42034becfecf4e11d8d1826ffe36c data\blockixel\loot_table\blocks\fancy_cactus.json
+437973bb65afbc4b09d03c772f6045bc80e91528 data\blockixel\loot_table\blocks\am_plate.json

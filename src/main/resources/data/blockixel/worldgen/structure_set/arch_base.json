@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "blockixel:arch_base",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 557176285,
+
+    "spacing": 34,
+
+    "separation": 8,
+
+    "type": "minecraft:random_spread"
+  }
+}

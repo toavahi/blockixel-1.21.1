@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "blockixel:item/lead_pack",
-    "layer1": "minecraft:trims/items/chestplate_trim_amethyst"
-  }
-}
